@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="MandelbrotViewer:jar">
+    <output-path>$PROJECT_DIR$/classes/artifacts/MandelbrotViewer_jar</output-path>
+    <root id="archive" name="MandelbrotViewer.jar">
+      <element id="module-output" name="MandelbrotViewer" />
+    </root>
+  </artifact>
+</component>
