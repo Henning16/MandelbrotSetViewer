@@ -25,7 +25,7 @@ public class Model {
 	//Start-Zeitpunkt
 	private long start = 0;
 	//Größe
-	private int width = 10000, height = 10000;
+	private int width = 1080, height = 1080;
 	//Auflösungsfaktor
 	private double resolutionScale = 1;
 	//Zoom

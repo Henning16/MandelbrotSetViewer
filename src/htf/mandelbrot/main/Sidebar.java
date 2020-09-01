@@ -102,31 +102,31 @@ public class Sidebar extends JPanel {
 		add(Box.createRigidArea(new Dimension(0, 5)));
 
 		//Über-Button mit Anzeige.
-		about = new JButton("Über");
+		about = new JButton("About");
 		about.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(Sidebar.this.frame, "Dieses Programm wurde von Henning Flath für die Facharbeit \"Visualisierung der Mandelbrot-Menge\" entwickelt.\n\nDie Colormaps wurden mithilfe der Website https://jdherman.github.io/colormap/ generiert.", "Über", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(Sidebar.this.frame, "This program was developed by Henning Flath for the math paper \"Visualisierung der Mandelbrot-Menge\".\n\nThe color maps were generated using the website https://jdherman.github.io/colormap/.", "About", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
 		add(about);
 		add(Box.createRigidArea(new Dimension(0, 10)));
 
 		//Zeit
-		calculationDuration = new JLabel("Berechnungsdauer: 0 ms");
+		calculationDuration = new JLabel("Calculation duration: 0 ms");
 		add(calculationDuration);
 		//Maus-Position
-		mousePosition = new JLabel("Maus-Position: 0, 0");
+		mousePosition = new JLabel("Cursor position: 0, 0");
 		add(mousePosition);
 		add(Box.createRigidArea(new Dimension(0, 25)));
 		
 		//Optionen
-		optionsTitle = new JLabel("Optionen");
+		optionsTitle = new JLabel("Options");
 		optionsTitle.setFont(titleFont);
 		add(optionsTitle);
 		add(Box.createRigidArea(new Dimension(0, 5)));
 		//Neu laden
-		reload = new JButton("Neu laden");
+		reload = new JButton("Reload");
 		reload.setPreferredSize(new Dimension(reload.getPreferredSize().width, 26));
 		reload.setMaximumSize(new Dimension(reload.getPreferredSize().width, 26));
 		reload.setMinimumSize(new Dimension(reload.getPreferredSize().width, 26));
@@ -155,7 +155,7 @@ public class Sidebar extends JPanel {
 		add(Box.createRigidArea(new Dimension(0, 25)));
 
 		//Positions-Eingabe
-		reel = new JLabel("Realteil von c");
+		reel = new JLabel("Reel part of c");
 		add(reel);
 		reelInput = new JTextField("0.0");
 		reelInput.setMinimumSize(new Dimension(240, 25));
@@ -193,7 +193,7 @@ public class Sidebar extends JPanel {
 		});
 		add(reelInput);
 		add(Box.createRigidArea(new Dimension(0, 5)));
-		imaginary = new JLabel("Imaginärteil von c");
+		imaginary = new JLabel("Imaginary part of c");
 		add(imaginary);
 		imaginaryInput = new JTextField("0.0");
 		imaginaryInput.setMinimumSize(new Dimension(240, 25));
@@ -231,12 +231,12 @@ public class Sidebar extends JPanel {
 		});
 		add(imaginaryInput);
 		add(Box.createRigidArea(new Dimension(0, 5)));
-		movingInfo = new JLabel("Mit den Pfeiltasten kann sich bewegt werden.");
+		movingInfo = new JLabel("You can move using the arrow keys.");
 		add(movingInfo);
 		add(Box.createRigidArea(new Dimension(0, 25)));
 		
 		//Iterationen-Eingabe
-		iterations = new JLabel("Iterationen");
+		iterations = new JLabel("Iterations");
 		add(iterations);
 		SpinnerModel iterationsModel = new SpinnerHalfDoubleNumberModel(1, 1, 1e6);
 		iterationSpinner = new JSpinner(iterationsModel);
@@ -254,7 +254,7 @@ public class Sidebar extends JPanel {
 		add(Box.createRigidArea(new Dimension(0, 25)));
 
 		//Farbkarten-Auswahl
-		colorMap = new JLabel("Color-Map");
+		colorMap = new JLabel("Color map");
 		add(colorMap);
 		String[] items = {"blueorange", "bluegreen", "blueyellow", "redblue", "teals", "seashore", "dawn", "none", "blues", "deepocean", "reds", "lava"};
 		colorMapDropDown = new JComboBox<String>(items);
@@ -271,7 +271,7 @@ public class Sidebar extends JPanel {
 		add(colorMapDropDown);
 		add(Box.createRigidArea(new Dimension(0, 5)));
 		//Farbausbreitungs-Feld
-		colorFactor = new JLabel("Color-Faktor");
+		colorFactor = new JLabel("Color factor");
 		add(colorFactor);
 		SpinnerModel colorModel = new SpinnerNumberModel(0.1, 0.000001f, 1e5, 0.001);
 		colorSpinner = new JSpinner(colorModel);
@@ -287,12 +287,12 @@ public class Sidebar extends JPanel {
 		add(colorSpinner);
 		add(Box.createRigidArea(new Dimension(0, 5)));
 		//Farbglättungs-Haken
-		useSmoothColoring = new JLabel("Weiche Farbübergänge");
+		useSmoothColoring = new JLabel("Smooth coloring");
 		add(useSmoothColoring);
 		smoothColoringCheckbox = new JCheckBox();
 		smoothColoringCheckbox.setSelected(false);
 		ToolTipManager.sharedInstance().setInitialDelay(100);
-		smoothColoringCheckbox.setToolTipText("Zum Nutzen dieser Funktion müssen die Iterationen\nfür korrekte Ergebnisse ggf. erhöht werden.");
+		smoothColoringCheckbox.setToolTipText("If you are using this function you might have\nto increse the iterations for correct results.");
 		smoothColoringCheckbox.addItemListener(new ItemListener() {
 			@Override
 			public void itemStateChanged(ItemEvent e) {
@@ -304,7 +304,7 @@ public class Sidebar extends JPanel {
 		add(Box.createRigidArea(new Dimension(0, 20)));
 
 		//Julia
-		switchBetweenMandelbrotAndJuliaSetButton = new JButton("Mandelbrot-Menge ↔ Julia-Menge");
+		switchBetweenMandelbrotAndJuliaSetButton = new JButton("Mandelbrot set ↔ Julia set");
 		switchBetweenMandelbrotAndJuliaSetButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -324,15 +324,15 @@ public class Sidebar extends JPanel {
 		add(Box.createRigidArea(new Dimension(0, 20)));
 
 		//Output generieren.
-		output = new JButton("Bild als output.png speichern");
+		output = new JButton("Save as output.png");
 		output.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent actionEvent) {
 				try {
 					frame.outputFile();
-					output.setText("Bild als output.png speichern");
+					output.setText("Save as output.png");
 				} catch(IOException e) {
-					output.setText("Bild als output.png speichern (Fehler)");
+					output.setText("Save as output.png (An error ocurred)");
 				}
 			}
 		});
@@ -340,11 +340,11 @@ public class Sidebar extends JPanel {
 	}
 
 	public void updateCalculationDuration() {
-		calculationDuration.setText("Berechnungsdauer: "+frame.getModel().getCalculationDuration()+" ms");
+		calculationDuration.setText("Calculation duration: "+frame.getModel().getCalculationDuration()+" ms");
 	}
 
 	public void updateMousePosition(double reel, double imaginary) {
-		mousePosition.setText("Maus-Position: "+(float) reel+", "+(float) imaginary);
+		mousePosition.setText("Cursor position: "+(float) reel+", "+(float) imaginary);
 	}
 
 	//Werte anpassen, wenn sie über die Tastatur verändert wurden.

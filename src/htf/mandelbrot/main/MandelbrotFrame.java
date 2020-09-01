@@ -36,14 +36,14 @@ public class MandelbrotFrame extends JFrame implements Runnable {
 	//Das Graphics-Objekt zum Zeichnen auf der Zeichenfläche.
 	private Graphics graphics;
 
-	private final double[][] currentDisplay = new double[1000][1000];
+	private final double[][] currentDisplay = new double[1080][1080];
 
 	//Die Seitenleiste für Einstellungen.
 	private Sidebar sidebar;
 	private JScrollPane sidebarScrollPane;
 
 	//Die Breite und Größe des Fensters.
-	private int frameWidth = 1300, frameHeight = 1000;
+	private int frameWidth = 1380, frameHeight = 1080;
 	//Das in dieser Variable abgespeicherte Model-Objekt enthält die mathematischen Konzepte.
 	private Model minimapModel;
 	//Das in dieser Variable abgespeicherte Model-Objekt enthält die mathematischen Konzepte.
@@ -126,7 +126,7 @@ public class MandelbrotFrame extends JFrame implements Runnable {
 
 		setSize(frameWidth, frameHeight);
 		//Titel des Fensters einstellen.
-		setTitle("Mandelbrot-Facharbeit");
+		setTitle("Mandelbrot Set Explorer by Henning Flath");
 		//Beim Schließen des Fensters auch das Programm beenden.
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//Das Fenster mittig platzieren.
@@ -160,13 +160,8 @@ public class MandelbrotFrame extends JFrame implements Runnable {
 
 	//Datei ausgeben und als output.png abspeichern.
 	public void outputFile() throws IOException {
-		BufferedImage img = new BufferedImage(model.getWidth() * 4, model.getHeight() * 4, BufferedImage.TYPE_INT_ARGB);
+		BufferedImage img = new BufferedImage((int) (model.getWidth() / model.getResolutionScale()), (int) (model.getHeight() / model.getResolutionScale()), BufferedImage.TYPE_INT_ARGB);
 		Graphics g = img.createGraphics();
-		int oldWidth = model.getWidth();
-		int oldHeight = model.getHeight();
-		model.setWidth(4000);
-		model.setHeight(4000);
-		model.calculate();
 		try {
 			if(model.getThread() != null) {
 				model.getThread().join();
@@ -177,9 +172,6 @@ public class MandelbrotFrame extends JFrame implements Runnable {
 		draw(g);
 		g.dispose();
 		ImageIO.write(img, "png", new File("output.png"));
-		model.setWidth(oldWidth);
-		model.setHeight(oldHeight);
-		model.calculate();
 	}
 
 	//Die berechneten Daten anzeigen.
